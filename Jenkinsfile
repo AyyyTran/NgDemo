@@ -24,6 +24,10 @@ node {
     }
 
     stage('Run Cypress Tests') {
+        // Wait for the development server to start
+        sleep(time: 30, unit: 'SECONDS')
+
+        // Run Cypress tests against the running server
         bat "npm run cypress:run"
     }
 }
